@@ -22,11 +22,11 @@ if __name__ == "__main__":
     to_email = ""
 
     home = str(Path.home())
-    with open(home+"/gmail_bot/from_email", 'r') as file:
+    with open(home+"/gmail_bot/emails", 'r') as file:
         from_email = file.readline()
+        to_email = file.readline()
 
-    with open(home+"/gmail_bot/to_email",'r') as file
-    schedule.every().day.at("14:59").do(sendMail, from_email, 'bokyem2952@naver.com','아자아자 화이팅!!!!')
+    schedule.every().day.at("14:59").do(sendMail, from_email, to_email,'아자아자 화이팅!!!!')
 
     while True:
         schedule.run_pending()
